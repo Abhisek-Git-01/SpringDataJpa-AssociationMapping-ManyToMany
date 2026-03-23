@@ -3,10 +3,9 @@ package com.spring.entity;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import jakarta.persistence.CascadeType;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -40,7 +39,7 @@ public class Faculty {
 	@Column(length=30)
 	private String fAdd;
 	
-	@ManyToMany(targetEntity=Student.class,cascade=CascadeType.ALL,fetch = FetchType.EAGER)
+	@ManyToMany(targetEntity=Student.class)
 	@JoinTable(name="JPA_MTM_FACULTY_STUDENT",joinColumns=@JoinColumn(name="FACULTY_ID",referencedColumnName="fId"),
 	inverseJoinColumns=@JoinColumn(name="STUDENT_ID",referencedColumnName="sId"))
 	private Set<Student> studs = new LinkedHashSet<>();

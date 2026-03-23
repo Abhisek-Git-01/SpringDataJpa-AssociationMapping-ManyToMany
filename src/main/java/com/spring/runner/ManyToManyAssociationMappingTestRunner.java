@@ -70,15 +70,22 @@ public class ManyToManyAssociationMappingTestRunner implements CommandLineRunner
 		 * String msg = collegeService.registerStudentsAndTheirFaculties(studs);
 		 * System.out.println(msg); } catch(Exception e) { e.printStackTrace(); }
 		 */
+		/*
+		 * List<Faculty> faculties = collegeService.getFacultyAndTheirStudent();
+		 * faculties.forEach(faculty->{ System.out.println("Faculty Data :: "+faculty);
+		 * faculty.getStuds().forEach(data->{
+		 * System.out.println("Student Data :: "+data); });
+		 * System.out.println("--------------------------------------------------------"
+		 * ); });
+		 */
 		
-		List<Faculty> faculties = collegeService.getFacultyAndTheirStudent();
-		faculties.forEach(faculty->{
-			System.out.println("Faculty Data :: "+faculty);
-			faculty.getStuds().forEach(data->{
-				System.out.println("Student Data :: "+data);
-			});
-			System.out.println("--------------------------------------------------------");
-		});
+		try {
+			String msg = collegeService.deleteFacultyAndTheirStudent(101);
+			System.out.println(msg);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 

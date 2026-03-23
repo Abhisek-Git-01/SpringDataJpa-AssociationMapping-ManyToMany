@@ -3,10 +3,9 @@ package com.spring.entity;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import jakarta.persistence.CascadeType;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -36,7 +35,7 @@ public class Student {
 	@Column(length=30)
 	private String sAdd;
 	
-	@ManyToMany(targetEntity=Faculty.class,cascade=CascadeType.ALL,fetch=FetchType.EAGER,mappedBy = "studs")
+	@ManyToMany(targetEntity=Faculty.class,mappedBy = "studs")
 	private Set<Faculty> faculties = new LinkedHashSet<>();
 
 	@Override
